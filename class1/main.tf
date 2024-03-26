@@ -12,6 +12,7 @@ resource "aws_iam_user" "lb" {
   path = "/system/"
 
   tags = {
-    tag-key = "tag-value"
+    Name = "bitch_iam_an_engineer"
+    managed_by = "https://github.com/almazaidarov/terra_for_me"
   }
 }
