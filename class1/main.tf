@@ -31,6 +31,7 @@ resource "aws_iam_group_membership" "team" {
   group = aws_iam_group.engineers.name
 }
 
-resource "aws_key_pair" "terraform_class" {
+resource "aws_key_pair" "terraform_class"  {
   key_name   = "terraform_class"
   public_key = file("~/.ssh/id_rsa.pub")
+}
