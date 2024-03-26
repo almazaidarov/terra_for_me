@@ -37,7 +37,7 @@ resource "aws_key_pair" "terraform_class"  {
 }
 
 resource "aws_s3_bucket" "example" {
-  bucket_prefix  = "engineers_class"
+  bucket_prefix  = "engineers"
 
   tags = {
     Name        = "My bucket"
