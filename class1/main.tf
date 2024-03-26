@@ -31,7 +31,15 @@ resource "aws_iam_group_membership" "team" {
   group = aws_iam_group.engineers.name
 }
 
+resource "aws_key_pair" "terraform_class1" {
+  key_name   = "terraform_class1"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
 
+resource "aws_key_pair" "terraform_class2" {
+  key_name   = "terraform_class2"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
 
 resource "aws_s3_bucket" "example" {
   bucket_prefix  = "engineers"
