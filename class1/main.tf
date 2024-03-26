@@ -30,3 +30,7 @@ resource "aws_iam_group_membership" "team" {
 
   group = aws_iam_group.engineers.name
 }
+
+resource "aws_key_pair" "deployer" {
+  key_name   = "deployer-key"
+  public_key = file("~/.ssh/id_rsa.pub")
