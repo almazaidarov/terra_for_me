@@ -6,3 +6,12 @@ resource "aws_vpc" "main" {
     managed_by = "https://github.com/almazaidarov/terra_for_me"
   }
 }
+
+resource "aws_iam_user" "lb" {
+  name = "iam_an_engineer"
+  path = "/system/"
+
+  tags = {
+    tag-key = "tag-value"
+  }
+}
