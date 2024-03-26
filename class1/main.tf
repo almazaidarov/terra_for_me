@@ -16,3 +16,7 @@ resource "aws_iam_user" "lb" {
     managed_by = "https://github.com/almazaidarov/terra_for_me"
   }
 }
+
+resource "aws_iam_group" "developers" {
+  name = "engineers"
+}
