@@ -35,3 +35,12 @@ resource "aws_key_pair" "terraform_class"  {
   key_name   = "terraform_class"
   public_key = file("~/.ssh/id_rsa.pub")
 }
+
+resource "aws_s3_bucket" "example" {
+  bucket_prefix  = "engineers_class"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
