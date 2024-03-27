@@ -57,8 +57,27 @@ module "vpc" {
   enable_nat_gateway = false
   enable_vpn_gateway = false
 
-  tags = {
-    Terraform = "true"
-    Environment = "dev"
-  }
+
+}
+
+module "asg" {
+  source = "terraform-aws-modules/autoscaling/aws"
+  # Autoscaling group
+  name                      = "example-asg"
+  min_size                  = 1
+  max_size                  = 3
+  desired_capacity          = 3
+  wait_for_capacity_timeout = 0
+  health_check_type         = "EC2"
+  availability_zones        = ["us-east-1a", "us-east-1b", "us-east-1c"]
+
+  # Launch template
+  launch_template_name        = "example-asg"
+  launch_template_description = "Launch template example"
+  update_default_version      = true
+
+  image_id          = data.aws_ami.ubuntu.id
+  instance_type     = "t3.micro"
+  ebs_optimized     = false
+  enable_monitoring = false
 }
