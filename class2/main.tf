@@ -33,6 +33,3 @@ resource "aws_instance" "web" {
 
 }
 
-output all {
-    value = aws_instance.web
-}
